@@ -4,6 +4,9 @@
 <h4>Nome: {{ nome }} - Idade: {{ idade }}</h4>
 {{#posts}}
 <div class="post">
+  {{#photo}}
+  <img src="/media/{{ photo }}" alt="Post Image" />
+  {{/photo}}
   <h3>
     <a href="/post/{{ slug }}">{{ title }}</a>
   </h3>

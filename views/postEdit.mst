@@ -1,6 +1,13 @@
 {{>header}}
 <h2>Editar Post</h2>
-<form action="" method="post">
+<form action="" method="post" enctype="multipart/form-data">
+  <label>
+    <input type="file" name="photo" />
+    {{#post.photo}}
+    <img src="/media/{{ post.photo }}" alt="Post Image" width="200" />
+    {{/post.photo}}
+  </label>
+  <br />
   <label>
     Titulo:
     <input type="text" name="title" value="{{ post.title }}" />
