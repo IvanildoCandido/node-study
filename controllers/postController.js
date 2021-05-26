@@ -2,10 +2,16 @@ const mongoose = require("mongoose");
 const Post = mongoose.model("Post");
 const slug = require("slug");
 
+exports.view = async (req, res) => {
+  const post = await Post.findOne({ slug: req.params.slug });
+  res.render("view", { post });
+};
+
 exports.add = (req, res) => {
   res.render("postAdd");
 };
 exports.addAction = async (req, res) => {
+  req.body.tags = req.body.tags.split(",").map((t) => t.trim());
   const post = new Post(req.body);
   try {
     await post.save();
@@ -24,6 +30,7 @@ exports.edit = async (req, res) => {
 
 exports.editAction = async (req, res) => {
   req.body.slug = slug(req.body.title, { lower: true });
+  req.body.tags = req.body.tags.split(",").map((t) => t.trim());
   try {
     const post = await Post.findOneAndUpdate(
       { slug: req.params.slug },
