@@ -1,7 +1,12 @@
 {{> header}}
-<h1>Faça o seu Login</h1>
+<h1>Faça o seu Cadastro</h1>
 
 <form method="POST">
+  <label>
+    Nome:
+    <input type="text" name="name" />
+  </label>
+  <br />
   <label>
     E-mail:
     <input type="text" name="email" />
@@ -12,5 +17,5 @@
     <input type="password" name="password" />
   </label>
   <br />
-  <input type="submit" value="Entrar" />
+  <input type="submit" value="Cadastrar" />
 </form>

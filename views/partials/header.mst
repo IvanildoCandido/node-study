@@ -11,6 +11,10 @@
   <body>
     <header>
       <h1>Cabeçalho</h1>
+      {{#user}}
+      Olá, <a href="/profile">{{ user.name }}</a
+      >!
+      {{/user}}
       <hr />
       <ul>
         {{#h.menu}}
@@ -21,14 +25,12 @@
       </ul>
     </header>
     {{#flashes}}
-
     {{#success}}
     <div class="warning">{{.}}</div>
     {{/success}}
     {{#error}}
     <div class="warning">{{.}}</div>
     {{/error}}
-
     {{/flashes}}
   </body>
 </html>
